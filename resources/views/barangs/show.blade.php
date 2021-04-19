@@ -7,7 +7,7 @@
                 <h2> Show Post</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-secondary" href="{{ route('books.index') }}"> Back</a>
+                <a class="btn btn-secondary" href="{{ route('barangs.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -16,13 +16,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Title:</strong>
-                {{ $book->nama }}
+                {{ $barangs->nama }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Content:</strong>
-                {{ $book->kategori }}
+                {{ $barangs->kategori }}
             </div>
         </div>
     </div>

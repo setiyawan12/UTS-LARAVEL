@@ -4,10 +4,10 @@
 <div class="row mt-5 mb-5">
     <div class="col-lg-12 margin-tb">
         <div class="float-left">
-            <h2>Create New Post</h2>
+            <h2>Create New Barang</h2>
         </div>
         <div class="float-right">
-            <a class="btn btn-secondary" href="{{ route('books.index') }}"> Back</a>
+            <a class="btn btn-secondary" href="{{ route('barangs.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     </div>
 @endif
 
-<form action="{{ route('books.store') }}" method="POST">
+<form action="{{ route('barangs.store') }}" method="POST">
     @csrf
 
      <div class="row">

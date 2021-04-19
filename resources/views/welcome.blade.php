@@ -21,6 +21,6 @@
         </style>
     </head>
     <body class="antialiased">
-    <a href ="{{route ('books.index')}}" class="btn btn-primary">Pindah</a>
+    <a href ="{{route ('barangs.index')}}" class="btn btn-primary">Pindah</a>
     </body>
 </html>

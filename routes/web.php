@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\BarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,5 @@ use App\Http\Controllers\BookController;
 |
 */
 
-Route::resource('books', BookController::class)->except('index');
-Route::get('/',[BookController::class,'index'])->name('books.index');
+Route::resource('barangs', BarangController::class)->except('index');
+Route::get('/',[BarangController::class,'index'])->name('barangs.index');

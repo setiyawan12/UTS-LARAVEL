@@ -3,10 +3,10 @@
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-left">
-                <h2>Crud Books</h2>
+                <h2>Crud Barang</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-success" href="{{ route('books.create') }}"> Create Post</a>
+                <a class="btn btn-success" href="{{ route('barangs.create') }}"> Create Barang</a>
             </div>
         </div>
     </div>
@@ -25,18 +25,18 @@
             <th>Stock Buku</th>
             <th width="280px"class="text-center">Action</th>
         </tr>
-        @foreach ($books as $book)
+        @forelse ($barangs as $item)
         <tr>
             <td class="text-center">{{ ++$i }}</td>
-            <td>{{ $book->nama }}</td>
-            <td>{{$book->kategori}}</td>
-            <td>{{$book->stock}}</td>
+            <td>{{ $item->nama }}</td>
+            <td>{{$item->kategori}}</td>
+            <td>{{$item->stock}}</td>
             <td class="text-center">
-                <form action="{{ route('books.destroy',$book->id) }}" method="POST">
+                <form action="{{ route('barangs.destroy',$item->id) }}" method="POST">
 
-                    <a class="btn btn-info btn-sm" href="{{ route('books.show',$book->id) }}">Show</a>
+                    <a class="btn btn-info btn-sm" href="{{ route('barangs.show',$item->id) }}">Show</a>
 
-                    <a class="btn btn-primary btn-sm" href="{{ route('books.edit',$book->id) }}">Edit</a>
+                    <a class="btn btn-primary btn-sm" href="{{ route('barangs.edit',$item->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
@@ -45,9 +45,11 @@
                 </form>
             </td>
         </tr>
-        @endforeach
+        @empty
+        <tr><td colspan="5" class="text-center"> Tidak Ada Data</td></tr>
+        @endforelse
     </table>
 
-    {!! $books->links() !!}
+    {!! $barangs->links() !!}
 
 @endsection

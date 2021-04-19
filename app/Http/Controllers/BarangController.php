@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Book;
-class BookController extends Controller
+use App\Models\Barang;
+class BarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +13,9 @@ class BookController extends Controller
      */
     public function index()
     {
-       $books = Book::latest()->paginate(5);
+       $barangs = Barang::latest()->paginate(5);
 
-       return view ('books.index',compact('books'))
+       return view ('barangs.index',compact('barangs'))
             ->with ('i', (request()->input('page',1)-1)*5);
     }
     /**
@@ -25,7 +25,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('barangs.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -41,9 +41,9 @@ class BookController extends Controller
             'kategori'=>'required',
             'stock'=>'required',
         ]);
-        Book::create($request->all());
-        return redirect()->route('books.index')
-            ->with('success','books created successfully.');
+        Barang::create($request->all());
+        return redirect()->route('barangs.index')
+            ->with('success','Barang created successfully.');
     }
 
     /**
@@ -54,9 +54,9 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        $book = Book::findOrFail($id);
+        $barangs = Barang::findOrFail($id);
         
-        return view('books.show', compact('book'));
+        return view('barangs.show', compact('barangs'));
     }
 
     /**
@@ -65,10 +65,10 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit(Barang $barang)
     {
         //
-        return view('books.edit',compact('book'));
+        return view('barangs.edit',compact('barang'));
     }
 
     /**
@@ -78,7 +78,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Barang $barang)
     {
         //
         $request->validate([
@@ -87,9 +87,9 @@ class BookController extends Controller
             'stock' => 'required',
         ]);
 
-        $book -> update($request->all());
-        return redirect()->route('books.index')
-            ->with('success','Books updated successfully');
+        $barang -> update($request->all());
+        return redirect()->route('barangs.index')
+            ->with('success','Barang updated successfully');
     }
 
     /**
@@ -98,12 +98,12 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Barang $barang)
     {
         //
-        $book-> delete();
-        return redirect()->route('books.index')
-                        ->with('success','Post deleted successfully');
+        $barang-> delete();
+        return redirect()->route('barangs.index')
+                        ->with('success','Barang deleted successfully');
 
     }
 }
