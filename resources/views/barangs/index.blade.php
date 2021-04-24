@@ -20,9 +20,9 @@
     <table class="table table-bordered">
         <tr>
             <th width="20px" class="text-center">No</th>
-            <th>Nama Buku</th>
-            <th>Kategori Buku</th>
-            <th>Stock Buku</th>
+            <th>Nama Barang</th>
+            <th>Kategori Barang</th>
+            <th>Stock Barang</th>
             <th width="280px"class="text-center">Action</th>
         </tr>
         @forelse ($barangs as $item)
